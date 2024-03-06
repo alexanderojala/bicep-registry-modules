@@ -41,7 +41,7 @@ The following section provides usage examples for the module, which were used to
 >**Note**: To reference the module, please use the following syntax `br/public:avm/res/recovery-services/vault:<version>`.
 
 - [Using only defaults](#example-1-using-only-defaults)
-- [Dr](#example-2-dr)
+- [Test case for disaster recovery enabled](#example-2-test-case-for-disaster-recovery-enabled)
 - [Using large parameter set](#example-3-using-large-parameter-set)
 - [WAF-aligned](#example-4-waf-aligned)
 
@@ -97,7 +97,10 @@ module vault 'br/public:avm/res/recovery-services/vault:<version>' = {
 </details>
 <p>
 
-### Example 2: _Dr_
+### Example 2: _Test case for disaster recovery enabled_
+
+This instance deploys the module with disaster recovery enabled.
+
 
 <details>
 
