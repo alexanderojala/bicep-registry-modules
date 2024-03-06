@@ -1,5 +1,8 @@
 targetScope = 'subscription'
 
+metadata name = 'Using disaster recovery enabled'
+metadata description = 'This instance deploys the module with disaster recovery enabled.'
+
 // ========== //
 // Parameters //
 // ========== //
