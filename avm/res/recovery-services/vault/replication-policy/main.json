@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.25.53.49325",
-      "templateHash": "13584135706699582181"
+      "templateHash": "1158671965106689509"
     },
     "name": "Recovery Services Vault Replication Policies",
     "description": "This module deploys a Recovery Services Vault Replication Policy for Disaster Recovery scenario.\n\n> **Note**: this version of the module only supports the `instanceType: 'A2A'` scenario.",
@@ -81,7 +81,7 @@
     },
     {
       "type": "Microsoft.RecoveryServices/vaults/replicationPolicies",
-      "apiVersion": "2022-10-01",
+      "apiVersion": "2023-06-01",
       "name": "[format('{0}/{1}', parameters('recoveryVaultName'), parameters('name'))]",
       "properties": {
         "providerSpecificInput": {

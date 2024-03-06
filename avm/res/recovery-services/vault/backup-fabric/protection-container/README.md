@@ -98,8 +98,8 @@ Type of the container.
     'Microsoft.Compute/virtualMachines'
     'SQLAGWorkLoadContainer'
     'StorageContainer'
-    'Windows'
     'VMAppContainer'
+    'Windows'
   ]
   ```
 
