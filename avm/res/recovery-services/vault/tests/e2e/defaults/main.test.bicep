@@ -46,5 +46,17 @@ module testDeployment '../../../main.bicep' = [for iteration in [ 'init', 'idem'
     location: location
     enableTelemetry: enableDefaultTelemetry
     name: '${namePrefix}${serviceShort}001'
+    replicationAlertSettings: {
+      customEmailAddresses: [
+        'test.user@testcompany.com'
+      ]
+      locale: 'en-US'
+      sendToOwners: 'Send'
+    }
+    securitySettings: {
+      immutabilitySettings: {
+        state: 'Unlocked'
+      }
+    }
   }
 }]

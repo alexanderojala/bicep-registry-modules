@@ -63,6 +63,18 @@ module vault 'br/public:avm/res/recovery-services/vault:<version>' = {
     // Non-required parameters
     enableTelemetry: '<enableTelemetry>'
     location: '<location>'
+    replicationAlertSettings: {
+      customEmailAddresses: [
+        'test.user@testcompany.com'
+      ]
+      locale: 'en-US'
+      sendToOwners: 'Send'
+    }
+    securitySettings: {
+      immutabilitySettings: {
+        state: 'Unlocked'
+      }
+    }
   }
 }
 ```
@@ -89,6 +101,22 @@ module vault 'br/public:avm/res/recovery-services/vault:<version>' = {
     },
     "location": {
       "value": "<location>"
+    },
+    "replicationAlertSettings": {
+      "value": {
+        "customEmailAddresses": [
+          "test.user@testcompany.com"
+        ],
+        "locale": "en-US",
+        "sendToOwners": "Send"
+      }
+    },
+    "securitySettings": {
+      "value": {
+        "immutabilitySettings": {
+          "state": "Unlocked"
+        }
+      }
     }
   }
 }
