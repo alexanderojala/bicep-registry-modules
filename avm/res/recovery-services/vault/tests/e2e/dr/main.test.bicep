@@ -1,6 +1,6 @@
 targetScope = 'subscription'
 
-metadata name = 'Using disaster recovery enabled'
+metadata name = 'Test case for disaster recovery enabled'
 metadata description = 'This instance deploys the module with disaster recovery enabled.'
 
 // ========== //
@@ -21,7 +21,7 @@ param serviceShort string = 'rsvdr'
 param enableDefaultTelemetry bool = true
 
 @description('Optional. A token to inject into the name of each resource.')
-param namePrefix string = '[[namePrefix]]'
+param namePrefix string = '#_namePrefix_#'
 
 // ============ //
 // Dependencies //
