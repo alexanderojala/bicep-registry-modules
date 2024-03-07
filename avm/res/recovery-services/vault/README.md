@@ -56,7 +56,7 @@ This instance deploys the module with the minimum set of required parameters.
 
 ```bicep
 module vault 'br/public:avm/res/recovery-services/vault:<version>' = {
-  name: '${uniqueString(deployment().name, location)}-test-rsvmin'
+  name: '${uniqueString(deployment().name, resourceLocation)}-test-rsvmin'
   params: {
     // Required parameters
     name: 'rsvmin001'
@@ -136,7 +136,7 @@ This instance deploys the module with disaster recovery enabled.
 
 ```bicep
 module vault 'br/public:avm/res/recovery-services/vault:<version>' = {
-  name: '${uniqueString(deployment().name, location)}-test-rsvdr'
+  name: '${uniqueString(deployment().name, resourceLocation)}-test-rsvdr'
   params: {
     // Required parameters
     name: '<name>'
@@ -314,7 +314,7 @@ This instance deploys the module with most of its features enabled.
 
 ```bicep
 module vault 'br/public:avm/res/recovery-services/vault:<version>' = {
-  name: '${uniqueString(deployment().name, location)}-test-rsvmax'
+  name: '${uniqueString(deployment().name, resourceLocation)}-test-rsvmax'
   params: {
     // Required parameters
     name: 'rsvmax001'
@@ -1024,7 +1024,7 @@ This instance deploys the module in alignment with the best-practices of the Azu
 
 ```bicep
 module vault 'br/public:avm/res/recovery-services/vault:<version>' = {
-  name: '${uniqueString(deployment().name, location)}-test-rsvwaf'
+  name: '${uniqueString(deployment().name, resourceLocation)}-test-rsvwaf'
   params: {
     // Required parameters
     name: 'rsvwaf001'
