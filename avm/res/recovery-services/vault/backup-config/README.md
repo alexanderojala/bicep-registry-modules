@@ -73,6 +73,7 @@ Enable this setting to protect hybrid backups against accidental deletes and add
     'AlwaysON'
     'Disabled'
     'Enabled'
+    'Invalid'
   ]
   ```
 

@@ -31,7 +31,8 @@
       "allowedValues": [
         "AlwaysON",
         "Disabled",
-        "Enabled"
+        "Enabled",
+        "Invalid"
       ],
       "metadata": {
         "description": "Optional. Enable this setting to protect hybrid backups against accidental deletes and add additional layer of authentication for critical operations."

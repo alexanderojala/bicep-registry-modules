@@ -2,6 +2,16 @@
 
 The latest version of the changelog can be found [here](https://github.com/Azure/bicep-registry-modules/blob/main/avm/res/recovery-services/vault/CHANGELOG.md).
 
+## 0.13.1
+
+### Changes
+
+- Fixed the deployment of the `backup-config` child module failing with `Parameter NO_PARAM in request is invalid` when vault-level `softDeleteSettings` is provided together with `backupConfig`. The soft delete related properties of `backupConfig` are now derived from `softDeleteSettings` instead of being nulled out, so that the `backupconfig` child resource always receives a complete and consistent configuration. [#7289](https://github.com/Azure/bicep-registry-modules/issues/7289)
+
+### Breaking Changes
+
+- None
+
 ## 0.13.0
 
 ### Changes
