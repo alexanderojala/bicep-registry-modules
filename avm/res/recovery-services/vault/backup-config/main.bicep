@@ -12,6 +12,7 @@ param name string = 'vaultconfig'
   'AlwaysON'
   'Disabled'
   'Enabled'
+  'Invalid'
 ])
 param enhancedSecurityState string?
 

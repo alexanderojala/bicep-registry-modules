@@ -2810,11 +2810,13 @@
           "name": {
             "value": "[tryGet(parameters('backupConfig'), 'name')]"
           },
-          "enhancedSecurityState": "[if(not(empty(parameters('softDeleteSettings'))), createObject('value', null()), createObject('value', tryGet(parameters('backupConfig'), 'enhancedSecurityState')))]",
+          "enhancedSecurityState": "[if(not(empty(parameters('softDeleteSettings'))), if(equals(parameters('softDeleteSettings').enhancedSecurityState, 'AlwaysON'), createObject('value', 'Enabled'), createObject('value', parameters('softDeleteSettings').enhancedSecurityState)), createObject('value', tryGet(parameters('backupConfig'), 'enhancedSecurityState')))]",
           "resourceGuardOperationRequests": {
             "value": "[tryGet(parameters('backupConfig'), 'resourceGuardOperationRequests')]"
           },
-          "softDeleteFeatureState": "[if(not(empty(parameters('softDeleteSettings'))), createObject('value', null()), createObject('value', tryGet(parameters('backupConfig'), 'softDeleteFeatureState')))]",
+          "softDeleteFeatureState": {
+            "value": "[coalesce(tryGet(parameters('softDeleteSettings'), 'softDeleteState'), tryGet(parameters('backupConfig'), 'softDeleteFeatureState'))]"
+          },
           "storageModelType": {
             "value": "[tryGet(parameters('backupConfig'), 'storageModelType')]"
           },
@@ -2831,7 +2833,7 @@
             "value": "[variables('enableReferencedModulesTelemetry')]"
           },
           "softDeleteRetentionPeriodInDays": {
-            "value": "[tryGet(parameters('backupConfig'), 'softDeleteRetentionPeriodInDays')]"
+            "value": "[coalesce(tryGet(parameters('softDeleteSettings'), 'softDeleteRetentionPeriodInDays'), tryGet(parameters('backupConfig'), 'softDeleteRetentionPeriodInDays'))]"
           }
         },
         "template": {
@@ -2867,7 +2869,8 @@
               "allowedValues": [
                 "AlwaysON",
                 "Disabled",
-                "Enabled"
+                "Enabled",
+                "Invalid"
               ],
               "metadata": {
                 "description": "Optional. Enable this setting to protect hybrid backups against accidental deletes and add additional layer of authentication for critical operations."

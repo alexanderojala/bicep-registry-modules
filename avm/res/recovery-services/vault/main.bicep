@@ -334,15 +334,17 @@ module rsv_backupConfig 'backup-config/main.bicep' = if (!empty(backupConfig)) {
   params: {
     recoveryVaultName: rsv.name
     name: backupConfig.?name
-    enhancedSecurityState: !empty(softDeleteSettings) ? null : backupConfig.?enhancedSecurityState
+    enhancedSecurityState: !empty(softDeleteSettings)
+      ? (softDeleteSettings!.enhancedSecurityState == 'AlwaysON' ? 'Enabled' : softDeleteSettings!.enhancedSecurityState)
+      : backupConfig.?enhancedSecurityState
     resourceGuardOperationRequests: backupConfig.?resourceGuardOperationRequests
-    softDeleteFeatureState: !empty(softDeleteSettings) ? null : backupConfig.?softDeleteFeatureState
+    softDeleteFeatureState: softDeleteSettings.?softDeleteState ?? backupConfig.?softDeleteFeatureState
     storageModelType: backupConfig.?storageModelType
     storageType: backupConfig.?storageType
     storageTypeState: backupConfig.?storageTypeState
     isSoftDeleteFeatureStateEditable: backupConfig.?isSoftDeleteFeatureStateEditable
     enableTelemetry: enableReferencedModulesTelemetry
-    softDeleteRetentionPeriodInDays: backupConfig.?softDeleteRetentionPeriodInDays
+    softDeleteRetentionPeriodInDays: softDeleteSettings.?softDeleteRetentionPeriodInDays ?? backupConfig.?softDeleteRetentionPeriodInDays
   }
 }
 
